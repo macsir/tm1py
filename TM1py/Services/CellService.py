@@ -3058,7 +3058,8 @@ class CellService(ObjectService):
             "/Cellsets('{}')?$expand=Cells($select=Value{})",
             cellset_id,
             f";$filter={filter_cells}" if filter_cells else "")
-        url = add_url_parameters(url, **{"!sandbox": sandbox_name})
+        if sandbox_name:
+            url = add_url_parameters(url, **{"!sandbox": sandbox_name})
         response = self._rest.GET(url=url, **kwargs)
 
         if not use_compact_json:
