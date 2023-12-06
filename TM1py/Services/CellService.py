@@ -1284,7 +1284,7 @@ class CellService(ObjectService):
         # v12 occasionally produces tiny numbers (e.g. 4.94066e-324) instead of 0
         data_procedure_pre += f"""
         IF (ISUNDEFINEDCELLVALUE(NVALUE,'{cube}') = 1);
-          SVALUE ='0'; 
+          SVALUE ='0';
         ENDIF;
         """
 
